@@ -8,8 +8,10 @@ if number < 0:
     positive = number * -1
     last_digit = positive % 10
     last_digit = last_digit * -1
-if number > 0:
+elif number > 0:
     last_digit = number % 10
+elif number == 0:
+    last_digit = 0
 
 if last_digit < 6 & last_digit != 0:
     print(less.format(number, last_digit))
