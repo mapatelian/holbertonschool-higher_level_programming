@@ -9,17 +9,7 @@ def only_diff_elements(set_1, set_2):
             newly created set
     """
 
-    new1 = list(set_1) + list(set_2)
-    new2 = []
-    for i in set_1:
-        for k in set_2:
-            if i is k:
-                new2.append(i)
+    list_1 = list(set_1)
+    list_2 = list(set_2)
 
-    new3 = []
-    for j in new1:
-        for h in new2:
-            if j is not h:
-                new3.append(j)
-
-    return new3
+    return [i for i in list_1 + list_2 if i not in list_1 or i not in list_2]
