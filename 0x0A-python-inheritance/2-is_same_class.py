@@ -1,4 +1,4 @@
-#!/urs/bin/python3
+#!/usr/bin/python3
 def is_same_class(obj, a_class):
     """Checkes whether an object is an instance of a specific class
     Args:
