@@ -6,5 +6,5 @@ def inherits_from(obj, a_class):
         a_class (class): a class
     Return:
         True or False
-    """
+"""
 return issubclass(obj, a_class)
