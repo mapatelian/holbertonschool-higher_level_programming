@@ -8,7 +8,7 @@ def best_score(a_dictionary):
     """
     my_list = []
     best = 0
-    if a_dictionary is None:
+    if a_dictionary is None or len(a_dictionary) == 0:
         return None
     for key, value in a_dictionary.items():
         my_list.append(key)
