@@ -112,24 +112,35 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".\
             format(self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Updating class Rectangle: assignment an argument to each attribute
             with the non-keyworded arguments
         """
-        lenght = len(args)
 
-        if lenght == 1:
-            for item in args:
-                self.id = item
-        if lenght == 2:
-            for item in args:
-                self.__width = item
-        if lenght == 3:
-            for item in args:
-                self.__height = item
-        if lenght == 4:
-            for item in args:
-                self.__x = item
-        if lenght == 5:
-            for item in args:
-                self.__y = item
+        if args is not None:
+            lenght = len(args)
+            if lenght == 1:
+                self.id = args[0]
+            elif lenght == 2:
+                self.id = args[0]
+                self.__width = args[1]
+            elif lenght == 3:
+                self.id = args[0]
+                self.__width = args[1]
+                self.__height = args[2]
+            elif lenght == 4:
+                self.id = args[0]
+                self.__width = args[1]
+                self.__height = args[2]
+                self.__x = args[3]
+            elif lenght == 5:
+                self.id = args[0]
+                self.__width = args[1]
+                self.__height = args[2]
+                self.__x = args[3]
+                self.__y = args[4]
+
+            if kwargs:
+                for key in kwargs:
+                    print(key)
+
