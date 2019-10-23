@@ -124,4 +124,15 @@ class Rectangle(Base):
             self.__x = args[3]
             self.__y = args[4]
         except:
-            pass
+            for key, value in kwargs.items():
+                if key is 'id':
+                    self.id = value
+                if key is 'height':
+                    self.__height = value
+                if key is 'x':
+                    self.__x = value
+                if key is 'width':
+                    self.__width = value
+                if key is 'y':
+                    self.__y = value
+
