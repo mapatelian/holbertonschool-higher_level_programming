@@ -117,22 +117,15 @@ class Rectangle(Base):
             with the non-keyworded arguments
         """
 
-        try:
-            self.id = args[0]
-            self.__width = args[1]
-            self.__height = args[2]
-            self.__x = args[3]
-            self.__y = args[4]
-        except:
+        if kwargs:
             for key, value in kwargs.items():
-                if key is 'id':
-                    self.id = value
-                if key is 'height':
-                    self.__height = value
-                if key is 'x':
-                    self.__x = value
-                if key is 'width':
-                    self.__width = value
-                if key is 'y':
-                    self.__y = value
-
+                setattr(self, key, value)
+        else:
+            try:
+                self.id = args[0]
+                self.__width = args[1]
+                self.__height = args[2]
+                self.__x = args[3]
+                self.__y = args[4]
+            except:
+                pass
