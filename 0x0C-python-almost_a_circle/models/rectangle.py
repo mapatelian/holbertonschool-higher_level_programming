@@ -139,8 +139,3 @@ class Rectangle(Base):
                 self.__height = args[2]
                 self.__x = args[3]
                 self.__y = args[4]
-
-            if kwargs:
-                for key in kwargs:
-                    print(key)
-
