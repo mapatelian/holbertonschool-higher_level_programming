@@ -29,3 +29,24 @@ class Base:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
+
+    # work on this one
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Writes the JSON string to a file
+        """
+        if list_objs is None:
+            mylist = []
+        else:
+            filename = "{}.json".format(cls.__name__)
+            with open(filename, 'w', encoding='utf-8') as filie:
+                json.dump(list_objs, filie)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """List of JSON representation
+        """
+        if json_string is None or len(json_string) == 0:
+            return "[]"
+        else:
+            return json.loads(json_string)
