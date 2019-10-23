@@ -22,7 +22,7 @@ class Rectangle(Base):
     def width(self):
         """Retriveing width
         """
-        return self.width
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -39,7 +39,7 @@ class Rectangle(Base):
     def height(self):
         """Retrieving height
         """
-        return self.height
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -56,7 +56,7 @@ class Rectangle(Base):
     def x(self):
         """Retrieving x
         """
-        return self.x
+        return self.__x
 
     @x.setter
     def x(self, value):
@@ -73,7 +73,7 @@ class Rectangle(Base):
     def y(self):
         """Retrieving y
         """
-        return self.y
+        return self.__y
 
     @y.setter
     def y(self, value):
@@ -117,15 +117,10 @@ class Rectangle(Base):
             with the non-keyworded arguments
         """
 
+        mylist = ['id', 'width', 'height', 'x', 'y']
         if args:
-            try:
-                self.id = args[0]
-                self.__width = args[1]
-                self.__height = args[2]
-                self.__x = args[3]
-                self.__y = args[4]
-            except:
-                pass
+            for i, item in enumerate(args):
+                setattr(self, mylist[i], item)
 
         else:
             for key, value in kwargs.items():
