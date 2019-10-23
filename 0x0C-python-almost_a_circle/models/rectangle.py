@@ -117,25 +117,11 @@ class Rectangle(Base):
             with the non-keyworded arguments
         """
 
-        if args is not None:
-            lenght = len(args)
-            if lenght == 1:
-                self.id = args[0]
-            elif lenght == 2:
-                self.id = args[0]
-                self.__width = args[1]
-            elif lenght == 3:
-                self.id = args[0]
-                self.__width = args[1]
-                self.__height = args[2]
-            elif lenght == 4:
-                self.id = args[0]
-                self.__width = args[1]
-                self.__height = args[2]
-                self.__x = args[3]
-            elif lenght == 5:
-                self.id = args[0]
-                self.__width = args[1]
-                self.__height = args[2]
-                self.__x = args[3]
-                self.__y = args[4]
+        try:
+            self.id = args[0]
+            self.__width = args[1]
+            self.__height = args[2]
+            self.__x = args[3]
+            self.__y = args[4]
+        except:
+            pass
