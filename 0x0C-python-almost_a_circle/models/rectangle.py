@@ -80,7 +80,7 @@ class Rectangle(Base):
         """Y validator and setter
         """
         if isinstance(value, int) is not True:
-            raise TypeError("width must be an integer")
+            raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         else:
