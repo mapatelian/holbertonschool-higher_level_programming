@@ -7,28 +7,19 @@ import sys
 import MySQLdb
 
 
-def list_all_match(mysql_username="", mysql_password="", database_name="",
-                   match=""):
-    """
-    Lists all cities from a state from a database
-    """
-    con = MySQLdb.connect(host="localhost", port=3306, user=mysql_username,
-                          passwd=mysql_password, db=database_name,
-                          charset="utf8")
-    cur = con.cursor()
-    sql = "SELECT cities.name FROM cities"
-    sql += " JOIN states ON state_id=states.id WHERE "
-    sql += "states.name LIKE BINARY %s ORDER BY cities.id ASC"
-    cur.execute(sql, (match,))
-    query_rows = cur.fetchall()
-    print(", ".join(rows[0] for rows in query_rows))
-    cur.close()
-    con.close()
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    match = sys.argv[4]
-    list_all_match(username, password, database, match)
+    pswd = sys.argv[2]
+    dname = sys.argv[3]
+    staten = sys.argv[4]
+
+    db = MySQLdb.connect(host="localhost", port=3306, user=username,
+                         passwd=pswd, db=dname, charset="utf8")
+    cur = db.cursor()
+    cur.execute("SELECT cities.name FROM cities " +
+                "JOIN states ON cities.state_id = states.id " +
+                "WHERE states.name = %s ORDER BY cities.id ASC", (staten,))
+    rows = cur.fetchall()
+    print(", ".join([row[0] for row in rows]))
+    cur.close()
+    db.close()
